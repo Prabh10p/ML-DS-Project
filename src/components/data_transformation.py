@@ -75,8 +75,9 @@ class DataTransformation:
 
 
 
-          X_train_array = np.c_[y_train_obj,np.array(X_train)]
-          X_test_array = np.c_[y_test_obj,np.array(X_test)]
+          X_train_array = np.c_[np.array(X_train), y_train_obj]
+          X_test_array = np.c_[np.array(X_test), y_test_obj]
+
 
           save_object(
             file_path = self.data_config.obj_file,

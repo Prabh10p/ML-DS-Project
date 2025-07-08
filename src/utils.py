@@ -1,4 +1,5 @@
 import sys
+import pickle
 import os
 from src.exception import CustomException
 import dill
@@ -49,3 +50,9 @@ def evaluate_object(X_train, y_train, X_test, y_test, models: dict, param: dict)
           
            
           
+def load_object(file_path):
+       try:
+            with open(file_path,"rb") as file:
+                return  pickle.load(file)
+       except Exception as e:
+            raise CustomException(e,sys)
